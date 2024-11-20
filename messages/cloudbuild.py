@@ -44,7 +44,7 @@ class CloudBuildMessage(BaseSlackMessage):
         )
 
         message = (
-            f"{self.status_emoji['STARTED']} Cloud Build `{repository_name}` Started\n\n"
+            f"{self.status_emoji['STARTED']} Cloud Build `{repository_name}` STARTED\n\n"
             f"*Project ID:* `{project_id}`\n"
             f"*Repository:* `{repository_name}`\n"
             f"*Build ID:* `{build_id}`\n"

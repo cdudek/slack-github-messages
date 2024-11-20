@@ -11,7 +11,7 @@ def main():
 
     """CLI entry point for Cloud Build start notifications"""
     webhook_url = os.environ["SLACK_WEBHOOK_URL"]
-    project_id = os.environ["CLOUD_BUILD_PROJECT_ID"]  # Changed from PROJECT_ID
+    project_id = os.environ["PROJECT_ID"]  # Changed from PROJECT_ID
     repository_name = os.environ["_REPOSITORY_NAME"]
     region = os.environ["_REGION"]
     build_id = os.environ["BUILD_ID"]

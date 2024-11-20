@@ -1,11 +1,12 @@
+# cli/cloudbuild_complete.py
 import os
 from messages.cloudbuild import CloudBuildMessage
 
 
 def main():
-    """CLI entry point for Cloud Build notifications"""
+    """CLI entry point for Cloud Build completion notifications"""
     webhook_url = os.environ["SLACK_WEBHOOK_URL"]
-    project_id = os.environ["PROJECT_ID"]
+    project_id = os.environ["CLOUD_BUILD_PROJECT_ID"]  # Changed from PROJECT_ID
     repository_name = os.environ["_REPOSITORY_NAME"]
     image_name = os.environ["_IMAGE_NAME"]
     region = os.environ["_REGION"]

@@ -5,6 +5,11 @@ from messages.cloudbuild import CloudBuildMessage
 
 def main():
     """CLI entry point for Cloud Build start notifications"""
+    print("Available environment variables:")
+    for key, value in sorted(os.environ.items()):
+        print(f"{key}: {value}")
+
+    """CLI entry point for Cloud Build start notifications"""
     webhook_url = os.environ["SLACK_WEBHOOK_URL"]
     project_id = os.environ["CLOUD_BUILD_PROJECT_ID"]  # Changed from PROJECT_ID
     repository_name = os.environ["_REPOSITORY_NAME"]

@@ -1,0 +1,171 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# pipenv files
+pipenv.log
+
+# Poetry files
+poetry.lock
+
+# Hatch environment
+.hatch/
+
+# Pytest
+.cache/
+*.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Pyre type checker
+.pyre/
+
+# MyPy
+.mypy_cache/
+
+# Pylint
+.pylint.d/
+
+# Coverage reports
+htmlcov/
+*.cover
+*.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.lcov
+
+# Testing
+.tox/
+.nox/
+
+# Sphinx documentation
+docs/_build/
+doc/_build/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Logs and debug files
+*.log
+*.out
+*.err
+
+# Local build artifacts
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Wheels
+*.whl
+
+# Package managers
+__pypackages__/
+
+# Editor swap files
+*.swp
+*.swo
+
+# Temporary files
+*.bak
+*.tmp
+*.temp
+*.orig
+*.~*
+
+# dotenv environment files
+.env
+.env.*
+
+# AWS credentials
+*.aws/
+
+# Secret files (be cautious if you use these patterns)
+secrets.*
+secret.*
+
+# Flask
+instance/
+.webassets-cache
+
+# Django
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Ansible
+*.retry
+
+# Machine learning artifacts
+*.model
+*.h5
+*.pkl
+*.joblib
+*.pb
+*.onnx
+*.tflite
+
+# Notebooks with outputs cleared
+*.ipynb
+
+# Profiling data
+*.prof
+*.pstats
+*.dat
+
+# Editor-specific
+# Vim
+*.swp
+*.swo
+*.vim
+.viminfo
+# Emacs
+*~
+.#*
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+# Atom
+.atom/
+*.atom
+*.apm
+# JetBrains (PyCharm, IntelliJ, etc.)
+*.idea/
+.idea/
+*.iml
+# Visual Studio Code
+.vscode/
+.secrets/

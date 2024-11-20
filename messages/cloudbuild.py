@@ -6,7 +6,6 @@ from .base import BaseSlackMessage
 class CloudBuildMessage(BaseSlackMessage):
     def __init__(self, webhook_url: str):
         super().__init__(webhook_url)
-        # self.dashboard_url = "https://lookerstudio.google.com/reporting/03d3cf06-feec-4804-90cf-4e02f4014608/page/6A7FE/edit"
         self.cloudbuild_url = "https://console.cloud.google.com/cloud-build"
         self.status_emoji = {
             "SUCCESS": "🟢",
@@ -20,12 +19,15 @@ class CloudBuildMessage(BaseSlackMessage):
         self, region: str, build_id: str, project_id: str
     ) -> tuple[str, str, str]:
         """Get Cloud Build URLs"""
-        base_url = f"{self.cloudbuild_url}/builds;region={region}/{build_id}"
-        build_url = f"{base_url}?project={project_id}"
-        logs_url = f"{base_url}/logs?project={project_id}"
+        # Updated URL structure to match actual Cloud Build URLs
         builds_url = (
             f"{self.cloudbuild_url}?project={project_id}"  # Main Cloud Build page
         )
+        build_url = f"{self.cloudbuild_url}/builds;region={region}/{build_id}?project={project_id}"
+        logs_url = (
+            f"{build_url}&page=logs"  # Changed to use the build URL as base for logs
+        )
+
         return build_url, logs_url, builds_url
 
     def create_start_message(

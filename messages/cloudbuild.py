@@ -12,6 +12,7 @@ class CloudBuildMessage(BaseSlackMessage):
             "FAILURE": "🔴",
             "TIMEOUT": "⚠️",
             "CANCELLED": "⚫",
+            "STARTED": "🔵",
         }
 
     def _get_build_urls(
@@ -22,6 +23,30 @@ class CloudBuildMessage(BaseSlackMessage):
         build_url = f"{base_url}?project={project_id}"
         logs_url = f"{base_url}/logs?project={project_id}"
         return build_url, logs_url
+
+    def create_start_message(
+        self,
+        project_id: str,
+        repository_name: str,
+        region: str,
+        build_id: str,
+        trigger_name: Optional[str] = None,
+    ) -> None:
+        """Create and send Cloud Build start notification"""
+        build_url, logs_url = self._get_build_urls(region, build_id, project_id)
+
+        message = (
+            f"{self.status_emoji['STARTED']} Cloud Build `{repository_name}` Started\n\n"
+            f"*Project ID:* `{project_id}`\n"
+            f"*Repository:* `{repository_name}`\n"
+            f"*Build ID:* `{build_id}`\n"
+            f"*Trigger:* `{trigger_name or 'Manual'}`\n"
+            f"*Date:* `{self._get_current_time()}`\n"
+            f"*Dashboard:* <{self.dashboard_url}|iWay Looker Dashboard>\n"
+            f"<{build_url}|See Build Details> | <{logs_url}|View Logs>\n\n"
+        )
+
+        self.send({"text": message})
 
     def create_message(
         self,
@@ -35,7 +60,7 @@ class CloudBuildMessage(BaseSlackMessage):
         trigger_name: Optional[str] = None,
         error_logs: Optional[str] = None,
     ) -> None:
-        """Create and send Cloud Build notification"""
+        """Create and send Cloud Build completion notification"""
         build_url, logs_url = self._get_build_urls(region, build_id, project_id)
         image_url = f"{region}-docker.pkg.dev/{project_id}/{repository_name}/{image_name}:{short_sha}"
 
